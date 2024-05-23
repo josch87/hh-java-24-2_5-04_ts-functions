@@ -26,13 +26,13 @@ const newList = [...list]
     .slice(4, -2)
     .map(number => number ** 2);
 
-const newList2 = newList
+const result = newList
     .filter(number => number % 4 !== 0)
     .reduce((a, b) => a + b, 0);
 
 console.log(list)
 console.log(newList)
-console.log(newList2)
+console.log(result)
 
 
 const app = document.querySelector("#app")
@@ -47,7 +47,7 @@ app.innerHTML = `
             </tr>
             <tr>
                 <td>Result:</td>
-                <td>${newList2}</td>
+                <td>${result}</td>
             </tr>
         </tbody>
 
