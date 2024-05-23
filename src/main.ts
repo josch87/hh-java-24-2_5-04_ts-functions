@@ -1,24 +1,16 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+const numbers: number[] = [1, 5, 17, 46, 523, 1361, 34461, 2473247347, 236283675287365];
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const doubledNumbers = numbers.map(number => number * 2);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const words: string[] = ["Saubstauger", "Getreideförderband", "Elektrolyte", "Energieeinsparpotential"];
+
+const filteredWords = words.filter(word => word.length > 5);
+
+const moreNumbers: number[] = [17, 21, 1, 14, 5];
+
+const reducedNumbers = moreNumbers.reduce((a, b) => a + b);
+
+const evenMoreNumbers: number[] = [29,22136,125,4,-11];
+
+const isEvenMoreNumbersGreaterThan10 = evenMoreNumbers.some(number => number > 10)
+
