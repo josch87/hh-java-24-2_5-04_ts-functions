@@ -50,6 +50,5 @@ app.innerHTML = `
                 <td>${result}</td>
             </tr>
         </tbody>
-
     </table>
 `;
