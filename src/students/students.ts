@@ -71,7 +71,7 @@ const highSchoolStudents = [aljoscha, detlev, dieter, susie]
 
 // Functions
 function printGrades(student: student) {
-    const head: string = student.firstName + " " + student.lastName + " (" + student.age + ")";
+    const head: string = `${student.firstName} ${student.lastName} (${student.age})`;
     console.log(head);
     console.log(getSeparator(head))
     console.log("Grades:")
