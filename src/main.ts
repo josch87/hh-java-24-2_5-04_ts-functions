@@ -17,6 +17,22 @@ const evenMoreNumbers: number[] = [29, 22136, 125, 4, -11];
 const isEvenMoreNumbersGreaterThan10 = evenMoreNumbers.some(number => number > 10)
 
 
+// Different ways to copy arrays
+console.log(numbers);
+const notACopyOfNumbers = numbers;
+// @ts-ignore
+const numbers2 = [...numbers];
+// @ts-ignore
+const numbers3 = numbers.slice();
+// @ts-ignore
+const numbers4 = Array.from(numbers);
+// @ts-ignore
+const numbers5 = [].concat(numbers)
+numbers.pop()
+console.log(numbers);
+console.log(notACopyOfNumbers);
+
+
 // Bonus
 
 const list: number[] = [15, 6, 3213, 9, 0, 12, 8464, 1, 1264, 481, 186, 1031, 194];
