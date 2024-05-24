@@ -20,8 +20,8 @@ function printGrades(student: student) {
             }
         }
     )
-
     console.log("Grades: " + grades);
+    console.log("");
 }
 
 
@@ -29,8 +29,24 @@ const aljoscha: student = {
     firstName: "Aljoscha",
     lastName: "Zöller",
     age: 17,
-    grades: [1, undefined, 'C', 6, 4, 'B'],
+    grades: [1, undefined, 'C', 6, 4, 'B',],
 }
 
-printGrades(aljoscha);
+type students = student[]
 
+const detlev: student = {
+    firstName: "Detlev",
+    lastName: "Arnolds",
+    age: 87,
+    grades: [1, 'A', 2, 'B', 3, 'C',]
+}
+
+const dieter: student = {...detlev, firstName: "Dieter", grades: [5, 'E', 6, 'F',]}
+
+const highSchoolStudents = [aljoscha, detlev, dieter]
+
+function printAllStudents(students: students) {
+    students.forEach(student => printGrades(student))
+}
+
+printAllStudents(highSchoolStudents)
