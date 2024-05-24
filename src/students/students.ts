@@ -11,7 +11,7 @@ type student = {
 type students = student[]
 type subject = {
     name: string,
-    grades: validGermanGrades[] | validAmericanGrades[]
+    grades: (validGermanGrades | validAmericanGrades)[]
 }
 
 // Data
