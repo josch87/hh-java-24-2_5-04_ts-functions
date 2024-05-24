@@ -6,11 +6,11 @@ type student = {
     firstName: string,
     lastName: string,
     age: number,
-    grades: subject[],
+    subjects: subject[],
 };
 type students = student[]
 type subject = {
-    subject: string,
+    name: string,
     grades: validGermanGrades[] | validAmericanGrades[]
 }
 
@@ -19,9 +19,9 @@ const aljoscha: student = {
     firstName: "Aljoscha",
     lastName: "Zöller",
     age: 17,
-    grades: [
+    subjects: [
         {
-            subject: "Computer Science",
+            name: "Computer Science",
             grades: [1, undefined, 'C', 6, 4, 'B',],
         }
     ],
@@ -31,9 +31,9 @@ const detlev: student = {
     firstName: "Detlev",
     lastName: "Arnolds",
     age: 87,
-    grades: [
+    subjects: [
         {
-            subject: "Computer Science",
+            name: "Computer Science",
             grades: [1, 'A', 2, 'B', 3, 'C',],
         }
     ],
@@ -42,9 +42,9 @@ const detlev: student = {
 const dieter: student = {
     ...detlev,
     firstName: "Dieter",
-    grades: [
+    subjects: [
         {
-            subject: "Math",
+            name: "Math",
             grades: [5, 'E', 6, 'F',],
         }
     ]
@@ -54,13 +54,13 @@ const susie: student = {
     firstName: "Susie",
     lastName: "S.",
     age: 15,
-    grades: [
+    subjects: [
         {
-            subject: "Naturschutz",
+            name: "Naturschutz",
             grades: ['A', 'B', 'C'],
         },
         {
-            subject: "Biologie",
+            name: "Biologie",
             grades: [1, 2, 3],
         },
     ],
@@ -75,8 +75,8 @@ function printGrades(student: student) {
     console.log(head);
     console.log(getSeparator(head))
     console.log("Grades:")
-    student.grades.forEach((grade) => {
-            console.log(grade.subject + ": " + grade.grades.map((grade) => getGrade(grade)));
+    student.subjects.forEach((subject) => {
+            console.log(subject.name + ": " + subject.grades.map((grade) => getGrade(grade)));
 
         }
     )
