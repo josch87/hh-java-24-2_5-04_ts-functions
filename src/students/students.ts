@@ -6,7 +6,7 @@ type student = {
     lastName: string,
     age: number,
     grades: validGermanGrades[] | validAmericanGrades[],
-}
+};
 
 function printGrades(student: student) {
     const head:string = student.firstName + " " + student.lastName + " (" + student.age + ")";
@@ -22,7 +22,7 @@ function printGrades(student: student) {
     )
     console.log("Grades: " + grades);
     console.log("");
-}
+};
 
 
 const aljoscha: student = {
@@ -52,7 +52,8 @@ const susie: student = {
 const highSchoolStudents = [aljoscha, detlev, dieter, susie]
 
 function printAllStudents(students: students) {
-    students.forEach(student => printGrades(student))
+    console.log("");
+    students.forEach(student => printGrades(student));
 }
 
 printAllStudents(highSchoolStudents)
