@@ -94,7 +94,6 @@ function getGrade(grade: validAmericanGrades | validGermanGrades) {
 }
 
 function getSeparator(string: string) {
-    string.length
     let separator: string = "";
 
     for (let i = 0; i < string.length; i++) {
