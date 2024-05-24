@@ -8,10 +8,10 @@ type student = {
     grades: validGermanGrades[] | validAmericanGrades[],
 }
 
-
 function printGrades(student: student) {
-    console.log(student.firstName + " " + student.lastName + " (" + student.age + ")");
-    console.log("==============================");
+    const head:string = student.firstName + " " + student.lastName + " (" + student.age + ")";
+    console.log(head);
+    console.log(getSeparator(head))
     const grades = student.grades.map((grade) => {
             if (grade === undefined) {
                 return '*'
@@ -26,12 +26,11 @@ function printGrades(student: student) {
 
 
 const aljoscha: student = {
-    firstName: "Aljoscha",
+firstName: "Aljoscha",
     lastName: "Zöller",
     age: 17,
     grades: [1, undefined, 'C', 6, 4, 'B',],
 }
-
 type students = student[]
 
 const detlev: student = {
@@ -43,10 +42,30 @@ const detlev: student = {
 
 const dieter: student = {...detlev, firstName: "Dieter", grades: [5, 'E', 6, 'F',]}
 
-const highSchoolStudents = [aljoscha, detlev, dieter]
+const susie: student = {
+    firstName: "Susie",
+    lastName: "S.",
+    age: 15,
+    grades: ['A', 'B', 'C']
+}
+
+const highSchoolStudents = [aljoscha, detlev, dieter, susie]
 
 function printAllStudents(students: students) {
     students.forEach(student => printGrades(student))
 }
 
 printAllStudents(highSchoolStudents)
+
+
+// Bonus
+function getSeparator(string:string) {
+    string.length
+    let separator:string = "";
+
+    for (let i = 0; i < string.length; i++) {
+        separator = separator + "=";
+    }
+
+    return separator;
+}
