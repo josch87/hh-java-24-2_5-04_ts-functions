@@ -1,10 +1,11 @@
-type validGrades = 1 | 2 | 3 | 4 | 5 | 6
+type validGermanGrades = 1 | 2 | 3 | 4 | 5 | 6;
+type validAmericanGrades = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
 type student = {
     firstName: string,
     lastName: string,
     age: number,
-    grades: validGrades[],
+    grades: validGermanGrades[] | validAmericanGrades[],
 }
 
 
@@ -19,7 +20,8 @@ const aljoscha: student = {
     firstName: "Aljoscha",
     lastName: "Zöller",
     age: 17,
-    grades: [1, 6, 4],
+    grades: [1, 'C', 6, 4, 'B'],
 }
 
 printGrades(aljoscha);
+
