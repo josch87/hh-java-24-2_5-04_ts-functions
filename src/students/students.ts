@@ -161,5 +161,5 @@ printAllStudents(highSchoolStudents)
 const av = getAverageSubjectGrade({name: "testName", grades: [1, 2, 'B', 6]})
 console.log(av)
 
-console.log(getAverageStudentGrade(aljoscha));
-console.log(getAverageGradeOfStudents(highSchoolStudents));
+console.log("Aljoschas average grade: " + getAverageStudentGrade(aljoscha));
+console.log("Average grade of all High-School students: " + getAverageGradeOfStudents(highSchoolStudents));
