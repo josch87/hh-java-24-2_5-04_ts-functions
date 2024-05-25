@@ -1,7 +1,10 @@
-
 // Type definition
 type validGermanGrades = 1 | 2 | 3 | 4 | 5 | 6 | undefined;
 type validAmericanGrades = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | undefined;
+type subject = {
+    name: string,
+    grades: (validGermanGrades | validAmericanGrades)[]
+}
 type student = {
     firstName: string,
     lastName: string,
@@ -9,10 +12,6 @@ type student = {
     subjects: subject[],
 };
 type students = student[]
-type subject = {
-    name: string,
-    grades: (validGermanGrades | validAmericanGrades)[]
-}
 
 // Data
 const aljoscha: student = {
@@ -82,10 +81,12 @@ function printGrades(student: student) {
     )
     console.log("");
 }
+
 function printAllStudents(students: students) {
     console.log("");
     students.forEach(student => printGrades(student));
 }
+
 function getGrade(grade: validAmericanGrades | validGermanGrades) {
     if (grade === undefined) {
         return '*';
@@ -103,5 +104,62 @@ function getSeparator(string: string) {
     return separator;
 }
 
+
+function getAverageSubjectGrade(subject: subject): number {
+    const grades = subject.grades
+        .filter(grade => grade !== undefined && grade !== null)
+        .map((grade) => {
+            switch (grade) {
+                case 'A':
+                    return 1
+                case 'B':
+                    return 2
+                case 'C':
+                    return 3
+                case 'D':
+                    return 4
+                case 'F':
+                    return 6
+                case 1:
+                    return 1
+                case 2:
+                    return 2
+                case 3:
+                    return 3
+                case 4:
+                    return 4
+                case 5:
+                    return 5
+                case 6:
+                    return 6
+                default:
+                    throw Error(`Invalid grade: ${grade}`)
+                case 'E':
+                    return 5
+            }
+        });
+
+    const sum = grades.reduce((a, b) => a + b, 0)
+    return sum / grades.length;
+}
+
+function getAverageStudentGrade(student: student): number {
+    const subjectsAverage = student.subjects.map((subject) => getAverageSubjectGrade(subject));
+    const sum = subjectsAverage.reduce((a, b,) => a + b, 0);
+    return sum / subjectsAverage.length;
+}
+
+function getAverageGradeOfStudents(students: students): number {
+    const studentAvg: number[] = students.map((student) => getAverageStudentGrade(student));
+    const sum: number = studentAvg.reduce((a, b) => a + b, 0);
+    return sum / studentAvg.length;
+}
+
 // Function call
 printAllStudents(highSchoolStudents)
+
+const av = getAverageSubjectGrade({name: "testName", grades: [1, 2, 'B', 6]})
+console.log(av)
+
+console.log(getAverageStudentGrade(aljoscha));
+console.log(getAverageGradeOfStudents(highSchoolStudents));
